@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" fill="none">
+  <ellipse cx="240" cy="336" rx="200" ry="14" fill="#F3D9BC"/>
+  <circle cx="240" cy="196" r="150" fill="#FFE8CF"/>
+
+  <!-- 雨滴：代表生活中的風雨 -->
+  <g fill="#F4B98A">
+    <path d="M62 70 q8 14 0 20 q-8 -6 0 -20z"/>
+    <path d="M92 118 q8 14 0 20 q-8 -6 0 -20z"/>
+    <path d="M418 64 q8 14 0 20 q-8 -6 0 -20z"/>
+    <path d="M392 120 q8 14 0 20 q-8 -6 0 -20z"/>
+    <path d="M440 142 q8 14 0 20 q-8 -6 0 -20z"/>
+  </g>
+
+  <!-- 保護傘 -->
+  <circle cx="240" cy="30" r="7" fill="#B4510F"/>
+  <path d="M90 170 C90 85 160 40 240 40 C320 40 390 85 390 170 Q352.5 200 315 170 Q277.5 200 240 170 Q202.5 200 165 170 Q127.5 200 90 170 Z" fill="#E8833A"/>
+  <path d="M240 40 L315 170 M240 40 L165 170 M240 40 L240 172" stroke="#B4510F" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+
+  <!-- 房子 -->
+  <rect x="190" y="262" width="100" height="62" rx="5" fill="#FFF8EF" stroke="#7A4A2A" stroke-width="4"/>
+  <path d="M176 266 L240 214 L304 266 Z" fill="#B4510F" stroke="#7A4A2A" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="226" y="284" width="28" height="40" rx="4" fill="#F59E4B"/>
+  <path d="M208 286 C203 283 201 280.5 201 278 C201 276 202.6 274.5 204.5 274.5 C206 274.5 207.4 275.3 208 276.5 C208.6 275.3 210 274.5 211.5 274.5 C213.4 274.5 215 276 215 278 C215 280.5 213 283 208 286 Z" fill="#E8833A"/>
+
+  <!-- 家人 -->
+  <g>
+    <circle cx="136" cy="276" r="13" fill="#7DA98B"/>
+    <rect x="119" y="292" width="34" height="42" rx="15" fill="#7DA98B"/>
+    <circle cx="170" cy="298" r="9" fill="#F59E4B"/>
+    <rect x="159" y="309" width="22" height="25" rx="10" fill="#F59E4B"/>
+  </g>
+  <g>
+    <circle cx="344" cy="276" r="13" fill="#E8833A"/>
+    <rect x="327" y="292" width="34" height="42" rx="15" fill="#E8833A"/>
+    <circle cx="310" cy="298" r="9" fill="#7DA98B"/>
+    <rect x="299" y="309" width="22" height="25" rx="10" fill="#7DA98B"/>
+  </g>
+</svg>
