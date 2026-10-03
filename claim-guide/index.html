@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>理賠文件導航｜申請理賠要準備哪些文件？</title>
+  <meta name="description" content="選擇醫療險、意外險、車險或旅平險，立刻看到要準備的文件、去哪裡取得、費用與時間。可勾選進度，也能列印帶著走。免註冊、免留資料。">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link no-print" href="#app" id="skip-link">跳到主要內容</a>
+
+  <header class="site-header no-print">
+    <div class="container header-inner">
+      <a class="brand" href="#/">
+        <img src="images/favicon.svg" alt="" width="34" height="34">
+        <span id="brand-name">理賠文件導航</span>
+      </a>
+      <nav class="site-nav" aria-label="網站導覽">
+        <a href="#types">理賠類型</a>
+        <a href="#steps">辦理流程</a>
+        <a href="#faq">常見問題</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <!-- ===== 首頁（預設顯示） ===== -->
+    <div id="view-home">
+      <section class="hero no-print">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="eyebrow">Claim Document Guide</p>
+            <h1 id="home-title" tabindex="-1">理賠文件，<br>一次備齊。</h1>
+            <p class="tagline">Every claim document, in order.</p>
+            <p class="lead">選擇你的理賠類型，就能看到要準備哪些文件、去哪裡取得、大概多少錢、要等多久。邊準備邊勾選，也可以列印帶著走。</p>
+            <ul class="points">
+              <li>不用註冊，也不用留任何資料</li>
+              <li>勾選的進度只存在你這台裝置的瀏覽器裡</li>
+              <li>每份文件都附上取得方式與小提醒</li>
+            </ul>
+            <a class="btn" href="#types">選擇理賠類型</a>
+          </div>
+          <img class="hero-img" src="images/hero.svg" alt="" width="594" height="400">
+        </div>
+      </section>
+
+      <section id="types" class="section no-print" aria-labelledby="types-title">
+        <div class="container">
+          <p class="eyebrow">Types</p>
+          <h2 id="types-title" class="section-title" tabindex="-1">你要申請哪一種理賠？</h2>
+          <p class="section-desc">每一種類型都有專屬的文件清單。選一個進去，照著準備就可以。</p>
+          <div id="type-grid" class="type-grid"></div>
+        </div>
+      </section>
+
+      <section id="steps" class="section section-lav no-print" aria-labelledby="steps-title">
+        <div class="container">
+          <p class="eyebrow">Flow</p>
+          <h2 id="steps-title" class="section-title">辦理流程，四個步驟</h2>
+          <ol id="steps-list" class="steps"></ol>
+        </div>
+      </section>
+
+      <section id="faq" class="section no-print" aria-labelledby="faq-title">
+        <div class="container narrow">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title" class="section-title">理賠常見問題</h2>
+          <div id="faq-list" class="faq"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== 類型頁（由 js/app.js 依網址 #/類型 產生） ===== -->
+    <div id="view-type" class="type-page" hidden></div>
+
+    <noscript>
+      <div class="container">
+        <p class="noscript">這個網站需要開啟瀏覽器的 JavaScript，才能顯示文件清單。</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <section id="contact" class="contact no-print" aria-label="聯絡方式"></section>
+      <p class="footer-note">本網站為一般性資訊整理，不是任何保險公司的官方規定，也不構成保險、投資或法律建議。實際應備文件、金額與時效，請以你的保單條款與保險公司的通知為準。</p>
+      <p class="footer-meta"><span id="site-name-foot">理賠文件導航</span>　內容整理於 <span id="updated"></span></p>
+    </div>
+  </footer>
+
+  <button class="page-top no-print" id="page-top" type="button" aria-label="回到頁面最上方">
+    <span class="pt-line" aria-hidden="true"></span>
+    <span class="pt-dot" aria-hidden="true"></span>
+    <span class="pt-text">Page Top</span>
+  </button>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
