@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>保障缺口試算器｜3 分鐘看懂保障夠不夠</title>
+  <meta name="description" content="免註冊、免留資料。填寫幾個問題，就能試算壽險、醫療、重大疾病、失能長照四種保障的缺口，並產出可列印的完整報告。">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link no-print" href="#calc">跳到試算表單</a>
+
+  <header class="site-header no-print">
+    <div class="container header-inner">
+      <img src="images/favicon.svg" alt="" width="36" height="36">
+      <span class="brand">保障缺口試算器</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== 首屏介紹 ===== -->
+    <section class="hero no-print">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">給一般人的保障健檢</p>
+          <h1>你的保障，夠不夠？</h1>
+          <p class="lead">跟著下面的問題填一填，約 3 分鐘就能看到壽險、醫療、重大疾病、失能長照四個面向還差多少，並且可以存成 PDF。</p>
+          <ul class="points">
+            <li>不用註冊，也不用留任何資料</li>
+            <li>所有計算都在你的瀏覽器裡完成，不會上傳</li>
+            <li>每一個數字都能依你的狀況調整</li>
+          </ul>
+          <a class="btn" href="#calc">開始試算</a>
+        </div>
+        <img class="hero-img" src="images/hero.svg" alt="" width="480" height="360">
+      </div>
+    </section>
+
+    <!-- ===== 試算表單 ===== -->
+    <section id="calc" class="calc no-print" aria-labelledby="calc-title">
+      <div class="container">
+        <h2 id="calc-title" class="section-title">填寫你的狀況</h2>
+
+        <div class="note">
+          <strong>怎麼填比較順？</strong>
+          <ul>
+            <li>金額多半以「萬元」為單位，例如 <b>3.5</b> 代表 3 萬 5 千元。</li>
+            <li>標示 <span class="tag">參考值</span> 的欄位已先帶入概略數字，請依你的實際狀況修改。</li>
+            <li>沒有的項目填 0 或留白就可以。</li>
+          </ul>
+        </div>
+
+        <form id="calc-form" novalidate>
+
+          <!-- 1. 基本狀況 -->
+          <section class="card" aria-labelledby="sec-basic">
+            <div class="card-head">
+              <span class="step-no" aria-hidden="true">1</span>
+              <h3 id="sec-basic">基本狀況</h3>
+            </div>
+            <p class="card-desc">先讓我們認識一下你。</p>
+            <div class="fields">
+              <div class="field">
+                <label for="age">現在年齡 <span class="req">必填</span></label>
+                <div class="input-wrap">
+                  <input id="age" name="age" type="number" inputmode="numeric" min="18" max="80" step="1" placeholder="例如 35" aria-describedby="age-hint">
+                  <span class="unit">歲</span>
+                </div>
+                <p class="hint" id="age-hint">請填 18 到 80 之間的整數。</p>
+              </div>
+              <div class="field">
+                <label for="retireAge">預計工作到幾歲 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="retireAge" name="retireAge" type="number" inputmode="numeric" min="40" max="90" step="1" value="65" aria-describedby="retireAge-hint">
+                  <span class="unit">歲</span>
+                </div>
+                <p class="hint" id="retireAge-hint">用來估算「失能後少賺的收入」，超過這個年齡的收入不計入。</p>
+              </div>
+              <div class="field">
+                <label for="monthlyIncome">平均每月收入 <span class="req">必填</span></label>
+                <div class="input-wrap">
+                  <input id="monthlyIncome" name="monthlyIncome" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 5" aria-describedby="monthlyIncome-hint">
+                  <span class="unit">萬元／月</span>
+                </div>
+                <p class="hint" id="monthlyIncome-hint">稅前平均月收入。目前沒有收入（例如家管）請填 0。</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. 壽險 -->
+          <section class="card" aria-labelledby="sec-life">
+            <div class="card-head">
+              <img src="images/icon-life.svg" alt="" width="48" height="48">
+              <h3 id="sec-life">壽險：萬一你不在了，家人需要多少？</h3>
+            </div>
+            <p class="card-desc">計算家人需要維持生活的年數、要還的貸款、孩子的教育金，再扣掉你已經準備的部分。</p>
+            <div class="fields">
+              <div class="field">
+                <label for="familyMonthly">家人每月基本生活開銷 <span class="req">必填</span></label>
+                <div class="input-wrap">
+                  <input id="familyMonthly" name="familyMonthly" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 3" aria-describedby="familyMonthly-hint">
+                  <span class="unit">萬元／月</span>
+                </div>
+                <p class="hint" id="familyMonthly-hint">伙食、水電、房租、交通、子女日常開銷等。<b>房貸、其他貸款不要放這裡</b>，下面另外算。</p>
+              </div>
+              <div class="field">
+                <label for="supportYears">家人需要被照顧幾年 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="supportYears" name="supportYears" type="number" inputmode="decimal" min="0" step="any" value="10" aria-describedby="supportYears-hint">
+                  <span class="unit">年</span>
+                </div>
+                <p class="hint" id="supportYears-hint">例如到孩子大學畢業，或到配偶可以自立為止。</p>
+              </div>
+              <div class="field">
+                <label for="debt">房貸與其他負債餘額</label>
+                <div class="input-wrap">
+                  <input id="debt" name="debt" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="debt-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="debt-hint">目前還沒還完的總金額，沒有請填 0。</p>
+              </div>
+              <div class="field">
+                <label for="kids">需要扶養的子女人數</label>
+                <div class="input-wrap">
+                  <input id="kids" name="kids" type="number" inputmode="numeric" min="0" max="10" step="1" placeholder="0">
+                  <span class="unit">位</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="eduPerKid">每位子女的教育預備金 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="eduPerKid" name="eduPerKid" type="number" inputmode="decimal" min="0" step="any" value="100" aria-describedby="eduPerKid-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="eduPerKid-hint">學費、補習、才藝等額外教育支出，請依你的規劃調整。</p>
+              </div>
+              <div class="field">
+                <label for="finalExpense">身後費用 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="finalExpense" name="finalExpense" type="number" inputmode="decimal" min="0" step="any" value="50" aria-describedby="finalExpense-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="finalExpense-hint">喪葬與相關雜支，各地區和習俗差異很大。</p>
+              </div>
+              <div class="field">
+                <label for="savings">家人可動用的存款與投資</label>
+                <div class="input-wrap">
+                  <input id="savings" name="savings" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="savings-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="savings-hint">只用來抵壽險需求。醫療、重疾、長照因為生病時存款還要當生活備用金，所以不扣。</p>
+              </div>
+              <div class="field">
+                <label for="lifeCover">目前壽險的身故保額合計</label>
+                <div class="input-wrap">
+                  <input id="lifeCover" name="lifeCover" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="lifeCover-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="lifeCover-hint">把定期險、終身險、團險等「身故時會領到的錢」加總。</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. 醫療 -->
+          <section class="card" aria-labelledby="sec-medical">
+            <div class="card-head">
+              <img src="images/icon-medical.svg" alt="" width="48" height="48">
+              <h3 id="sec-medical">醫療：一次較嚴重的住院要花多少？</h3>
+            </div>
+            <p class="card-desc">以「一次住院」為情境，分成每天的花費和自費醫療兩塊，分開比較你的保障。</p>
+            <div class="fields">
+              <div class="field">
+                <label for="hospDays">預估住院天數 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="hospDays" name="hospDays" type="number" inputmode="numeric" min="0" max="365" step="1" value="7">
+                  <span class="unit">天</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="roomDiff">病房差額（每天） <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="roomDiff" name="roomDiff" type="number" inputmode="numeric" min="0" step="any" value="3000" aria-describedby="roomDiff-hint">
+                  <span class="unit">元／日</span>
+                </div>
+                <p class="hint" id="roomDiff-hint">想住單人房或雙人房，自己要補的差額。</p>
+              </div>
+              <div class="field">
+                <label for="nurse">看護費（每天） <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="nurse" name="nurse" type="number" inputmode="numeric" min="0" step="any" value="2500" aria-describedby="nurse-hint">
+                  <span class="unit">元／日</span>
+                </div>
+                <p class="hint" id="nurse-hint">如果會請看護才需要，不需要請填 0。</p>
+              </div>
+              <div class="field">
+                <label for="selfPay">自費醫療項目（一次住院） <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="selfPay" name="selfPay" type="number" inputmode="decimal" min="0" step="any" value="20" aria-describedby="selfPay-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="selfPay-hint">健保不給付的醫材、藥品、手術方式等。</p>
+              </div>
+              <div class="field">
+                <label for="dailyCover">目前每天可領的住院給付</label>
+                <div class="input-wrap">
+                  <input id="dailyCover" name="dailyCover" type="number" inputmode="numeric" min="0" step="any" placeholder="0" aria-describedby="dailyCover-hint">
+                  <span class="unit">元／日</span>
+                </div>
+                <p class="hint" id="dailyCover-hint">住院日額險的每日給付。實支實付若有「病房費用每日上限」，也可以加進來。</p>
+              </div>
+              <div class="field">
+                <label for="reimburse">目前實支實付的雜費與手術額度</label>
+                <div class="input-wrap">
+                  <input id="reimburse" name="reimburse" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="reimburse-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="reimburse-hint">住院醫療費用與手術可報銷的額度合計，沒有請填 0。</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. 重大疾病 -->
+          <section class="card" aria-labelledby="sec-critical">
+            <div class="card-head">
+              <img src="images/icon-critical.svg" alt="" width="48" height="48">
+              <h3 id="sec-critical">重大疾病與癌症：治療加休養要準備多少？</h3>
+            </div>
+            <p class="card-desc">確診後除了治療費，還要面對一段時間無法正常工作、收入中斷。</p>
+            <div class="fields">
+              <div class="field">
+                <label for="ciTreat">自費治療費用 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="ciTreat" name="ciTreat" type="number" inputmode="decimal" min="0" step="any" value="150" aria-describedby="ciTreat-hint">
+                  <span class="unit">萬元</span>
+                </div>
+                <p class="hint" id="ciTreat-hint">標靶、免疫、質子重離子等健保不給付的治療，費用落差很大。</p>
+              </div>
+              <div class="field">
+                <label for="ciMonths">休養、無法工作的時間 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="ciMonths" name="ciMonths" type="number" inputmode="numeric" min="0" max="600" step="1" value="24" aria-describedby="ciMonths-hint">
+                  <span class="unit">個月</span>
+                </div>
+                <p class="hint" id="ciMonths-hint">會用上面填的「每月收入」換算收入損失。</p>
+              </div>
+              <div class="field">
+                <label for="ciCover">目前重大疾病／癌症險的一次給付合計</label>
+                <div class="input-wrap">
+                  <input id="ciCover" name="ciCover" type="number" inputmode="decimal" min="0" step="any" placeholder="0">
+                  <span class="unit">萬元</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 5. 失能／長照 -->
+          <section class="card" aria-labelledby="sec-care">
+            <div class="card-head">
+              <img src="images/icon-care.svg" alt="" width="48" height="48">
+              <h3 id="sec-care">失能與長照：長期照顧要準備多少？</h3>
+            </div>
+            <p class="card-desc">這是持續時間最長的風險：照顧要花錢，自己的收入又可能中斷。</p>
+            <div class="fields">
+              <div class="field">
+                <label for="careMonthly">每月照護費用 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="careMonthly" name="careMonthly" type="number" inputmode="decimal" min="0" step="any" value="5" aria-describedby="careMonthly-hint">
+                  <span class="unit">萬元／月</span>
+                </div>
+                <p class="hint" id="careMonthly-hint">外籍看護、機構或居家照護費用差異很大，請依你想要的方式調整。</p>
+              </div>
+              <div class="field">
+                <label for="careYears">需要照護幾年 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="careYears" name="careYears" type="number" inputmode="decimal" min="0" step="any" value="7">
+                  <span class="unit">年</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="workLossYears">失能後無法工作的年數 <span class="tag">參考值</span></label>
+                <div class="input-wrap">
+                  <input id="workLossYears" name="workLossYears" type="number" inputmode="decimal" min="0" step="any" value="5" aria-describedby="workLossYears-hint">
+                  <span class="unit">年</span>
+                </div>
+                <p class="hint" id="workLossYears-hint">會乘上每月收入算出少賺多少，最多算到上面填的退休年齡。</p>
+              </div>
+              <div class="field">
+                <label for="disLump">目前失能／長照險的一次給付合計</label>
+                <div class="input-wrap">
+                  <input id="disLump" name="disLump" type="number" inputmode="decimal" min="0" step="any" placeholder="0">
+                  <span class="unit">萬元</span>
+                </div>
+              </div>
+              <div class="field">
+                <label for="disMonthly">目前失能／長照險的每月給付合計</label>
+                <div class="input-wrap">
+                  <input id="disMonthly" name="disMonthly" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-describedby="disMonthly-hint">
+                  <span class="unit">萬元／月</span>
+                </div>
+                <p class="hint" id="disMonthly-hint">例如失能扶助金、長照月給付，會以上面的「照護年數」計算領多久。</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-lg">看我的保障缺口</button>
+            <button type="button" id="reset-btn" class="btn btn-ghost">全部重填</button>
+          </div>
+          <p id="form-error" class="form-error" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== 報告（按下試算後由 js/app.js 產生內容） ===== -->
+    <section id="report" class="report" aria-live="polite" tabindex="-1" hidden></section>
+  </main>
+
+  <footer class="site-footer no-print">
+    <div class="container">
+      <p>本網站為教育性質的簡化試算工具，不構成保險、投資或法律建議，也不是任何保險商品的要約或推薦。試算結果取決於你填寫的數字與參考值；實際保障內容以保單條款為準，建議與專業人員討論。</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
