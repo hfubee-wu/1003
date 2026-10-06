@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#e6d6b4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2a221b" media="(prefers-color-scheme: dark)">
+<title>台南兩天一夜</title>
+<style>
+  :root {
+    --desk: #e6d6b4;
+    --desk-dot: rgba(110, 75, 30, .14);
+    --on-desk: #3a2e22;
+    --paper: #fff8e6;
+    --paper-lined: #fffdf5;
+    --sticky: #ffe58f;
+    --print: #2a211a;
+    --muted: #5a4d40;
+    --ink: #1d2f6f;
+    --red: #b4472b;
+    --red-deep: #9c3a22;
+    --teal: #17605c;
+    --cream: #fff4dc;
+    --mustard: #f2c14e;
+    --tape: rgba(242, 193, 78, .9);
+    --rule: rgba(70, 120, 175, .4);
+    --margin: rgba(200, 70, 50, .5);
+    --route: rgba(58, 46, 34, .5);
+    --shadow: 0 1px 1px rgba(58, 40, 20, .22), 0 9px 16px -7px rgba(58, 40, 20, .45);
+
+    --sans: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Heiti TC", system-ui, sans-serif;
+    --serif: "Didot", "Bodoni 72", "Bodoni MT", "Playfair Display", Georgia, "Times New Roman", serif;
+    --serif-zh: "Noto Serif TC", "Source Han Serif TC", "Songti TC", "STSong", "PMingLiU", "MingLiU", "Noto Serif CJK TC", serif;
+    --hand: "Hannotate TC", "HanziPen TC", "Bradley Hand", "Segoe Print", "Kaiti TC", "BiauKai", "DFKai-SB", "標楷體", "KaiTi", cursive, sans-serif;
+    --type: "American Typewriter", "Courier New", Courier, ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --desk: #2a221b;
+      --desk-dot: rgba(255, 225, 170, .06);
+      --on-desk: #ecdfc6;
+      --paper: #f1e5c8;
+      --paper-lined: #f5ecd5;
+      --sticky: #ecd37c;
+      --route: rgba(236, 223, 198, .5);
+      --shadow: 0 1px 1px rgba(0, 0, 0, .4), 0 9px 16px -7px rgba(0, 0, 0, .7);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--desk);
+    background-image: radial-gradient(var(--desk-dot) 1.2px, transparent 1.6px);
+    background-size: 8px 8px;
+    color: var(--print);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem 16px 3.5rem;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  /* ---------- 膠帶（共用） ---------- */
+  .taped::before {
+    content: "";
+    position: absolute;
+    top: -.8rem;
+    left: 50%;
+    width: 5.4rem;
+    height: 1.55rem;
+    margin-left: -2.7rem;
+    transform: rotate(-3deg);
+    background-color: var(--tape);
+    background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .3) 0 5px, transparent 5px 10px);
+    clip-path: polygon(0 0, 100% 0, 97% 25%, 100% 50%, 97% 75%, 100% 100%, 0 100%, 3% 75%, 0 50%, 3% 25%);
+    opacity: .92;
+  }
+
+  /* ---------- 封面：手寫小紙條 + 雜誌標題 ---------- */
+  .cover {
+    position: relative;
+    margin: 0 0 3rem;
+  }
+
+  .letter {
+    --lh: 2.3rem;
+    position: relative;
+    z-index: 2;
+    margin: .7rem .7rem 0;
+    padding: .45rem .85rem 1rem 3rem;
+    background-color: var(--paper-lined);
+    background-image:
+      linear-gradient(90deg, transparent 2.4rem, var(--margin) 2.4rem, var(--margin) calc(2.4rem + 2px), transparent calc(2.4rem + 2px)),
+      linear-gradient(180deg, transparent calc(var(--lh) - 8px), var(--rule) calc(var(--lh) - 8px), var(--rule) calc(var(--lh) - 7px), transparent calc(var(--lh) - 7px));
+    background-size: 100% 100%, 100% var(--lh);
+    background-repeat: no-repeat, repeat-y;
+    background-position: 0 0, 0 .45rem;
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    transform: rotate(-1.4deg);
+    color: var(--ink);
+    font-family: var(--hand);
+    font-size: 1.28rem;
+    line-height: var(--lh);
+  }
+  .letter p {
+    margin: 0;
+    text-wrap: balance;
+  }
+  .to { font-size: 1.6rem; }
+  .l1 { transform: rotate(-.5deg) translateX(1px); }
+  .l2 { transform: rotate(.4deg) translateX(4px); }
+  .l3 { transform: rotate(-.3deg) translateX(2px); }
+  .hl {
+    padding: 0 .08em;
+    background: linear-gradient(180deg, transparent 52%, rgba(242, 193, 78, .8) 52%, rgba(242, 193, 78, .8) 90%, transparent 90%);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .35rem;
+    padding-right: .3rem;
+    font-size: 1.5rem;
+    transform: rotate(-1deg);
+  }
+  .ps { font-size: 1.1rem; }
+  .ps a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .ps .doodle {
+    display: inline-block;
+    vertical-align: -.35em;
+    margin-left: .25rem;
+  }
+  .doodle {
+    flex: none;
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .heart { fill: rgba(180, 71, 43, .2); stroke: var(--red); }
+  .arrow { stroke: var(--ink); }
+
+  .mast {
+    position: relative;
+    z-index: 1;
+    margin-top: -2.6rem;
+    padding: 4.5rem 1.1rem 1.1rem;
+    background-color: var(--teal);
+    background-image: radial-gradient(rgba(255, 244, 220, .14) 1.3px, transparent 1.7px);
+    background-size: 8px 8px;
+    box-shadow: var(--shadow);
+    outline: 2px solid rgba(255, 244, 220, .55);
+    outline-offset: -8px;
+    color: var(--cream);
+  }
+  .mast-top {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: 0 .2rem .3rem;
+    border-bottom: 3px double rgba(255, 244, 220, .65);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .12em;
+  }
+  .nameplate {
+    margin: .55rem 0 0;
+    text-align: center;
+    white-space: nowrap;
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: clamp(3rem, 16vw, 4.8rem);
+    line-height: .95;
+    letter-spacing: -.01em;
+    color: var(--mustard);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, .18);
+  }
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    margin: .5rem 0 0;
+    white-space: nowrap;
+    font-family: var(--serif-zh);
+    font-weight: 900;
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+    line-height: 1.2;
+    letter-spacing: .14em;
+    color: var(--cream);
+  }
+  h1::before,
+  h1::after {
+    content: "";
+    flex: 1;
+    min-width: .5rem;
+    height: 2px;
+    background: rgba(255, 244, 220, .5);
+  }
+  .deck {
+    margin: .2rem 0 0;
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    letter-spacing: .22em;
+    color: rgba(255, 244, 220, .92);
+  }
+  .mast-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: .8rem;
+    margin-top: .8rem;
+  }
+  .credits {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: .06em;
+  }
+  .barcode {
+    flex: none;
+    width: 4.6rem;
+    height: 2.6rem;
+    padding: .3rem;
+    background: #fffaf0;
+  }
+  .barcode::before {
+    content: "";
+    display: block;
+    height: 100%;
+    background: repeating-linear-gradient(90deg, #1b1b1b 0 2px, transparent 2px 4px, #1b1b1b 4px 5px, transparent 5px 8px, #1b1b1b 8px 11px, transparent 11px 12px);
+  }
+
+  /* ---------- 每天的段落標籤 ---------- */
+  .day { margin: 0 0 2.6rem; }
+  #trip { scroll-margin-top: 1rem; }
+
+  .day-head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    width: fit-content;
+    margin: 0 0 1.4rem .2rem;
+    padding: .3rem 1.1rem .3rem .85rem;
+    background: var(--paper);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    transform: rotate(-1.2deg);
+  }
+  .day-head::before {
+    content: "";
+    position: absolute;
+    top: -.55rem;
+    left: -1rem;
+    width: 3.4rem;
+    height: 1.3rem;
+    transform: rotate(-35deg);
+    background-color: rgba(214, 106, 74, .88);
+    background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, .28) 0 5px, transparent 5px 10px);
+    clip-path: polygon(0 0, 100% 0, 97% 25%, 100% 50%, 97% 75%, 100% 100%, 0 100%, 3% 75%, 0 50%, 3% 25%);
+  }
+  .day-no {
+    padding-right: .75rem;
+    border-right: 2px solid var(--red);
+    font-family: var(--type);
+    font-weight: 700;
+    font-size: 1.9rem;
+    line-height: 1;
+    color: var(--red);
+  }
+  h2 {
+    margin: 0;
+    font-family: var(--serif-zh);
+    font-weight: 900;
+    font-size: 1.55rem;
+    line-height: 1.3;
+    letter-spacing: .12em;
+    color: var(--print);
+  }
+
+  /* ---------- 行程：票根 ---------- */
+  .stops {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 1.7rem;
+  }
+  .stops::before {
+    content: "";
+    position: absolute;
+    left: .55rem;
+    top: 1.2rem;
+    bottom: 1.4rem;
+    border-left: 3px dotted var(--route);
+  }
+  .stop {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.3rem 1fr;
+    margin: 0 0 1.15rem;
+    background: var(--paper);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+  }
+  .stop::before {
+    content: "";
+    position: absolute;
+    left: -1.6rem;
+    top: 1.05rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    border: 3px solid var(--desk);
+    border-radius: 50%;
+    background: var(--red);
+  }
+  .stub {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .85rem .2rem .7rem;
+    border-right: 2px dashed rgba(58, 46, 34, .38);
+  }
+  .stub::before,
+  .stub::after {
+    content: "";
+    position: absolute;
+    right: -.36rem;
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    background: var(--desk);
+  }
+  .stub::before { top: -.38rem; }
+  .stub::after { bottom: -.38rem; }
+  .time {
+    font-family: var(--type);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 5.4vw, 1.5rem);
+    line-height: 1.25;
+    letter-spacing: -.03em;
+    color: var(--red);
+  }
+  .body {
+    min-width: 0;
+    padding: .75rem 1rem .85rem .9rem;
+  }
+  .name {
+    margin: 0;
+    font-family: var(--serif-zh);
+    font-weight: 900;
+    font-size: 1.28rem;
+    line-height: 1.4;
+    color: var(--print);
+  }
+  .place {
+    margin: .05rem 0 .35rem;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+  .desc {
+    margin: 0;
+    font-family: var(--hand);
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  /* ---------- 行前提醒：便利貼 ---------- */
+  .remind {
+    position: relative;
+    margin: 0;
+    padding: .5rem 1.1rem .6rem;
+    background-color: var(--sticky);
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .35), transparent 40%);
+    border-radius: 3px;
+    box-shadow: var(--shadow);
+    transform: rotate(.7deg);
+  }
+  .remind::before { background-color: rgba(120, 178, 170, .9); }
+  .remind .row {
+    padding: .75rem 0 .8rem;
+    border-bottom: 1px dashed rgba(58, 40, 20, .3);
+  }
+  .remind .row:last-child { border-bottom: 0; }
+  .remind dt {
+    display: inline-block;
+    margin: 0 0 .25rem;
+    padding: .05rem .5rem .05rem .7rem;
+    border: 2px solid var(--red-deep);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .2em;
+    color: var(--red-deep);
+    transform: rotate(-2deg);
+  }
+  .remind dd {
+    margin: 0;
+    font-family: var(--hand);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .foot {
+    margin: 0;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--on-desk);
+    opacity: .8;
+  }
+
+  @media (max-width: 360px) {
+    .stops { padding-left: 1.4rem; }
+    .stops::before { left: .4rem; }
+    .stop::before { left: -1.35rem; }
+    .stop { grid-template-columns: 4.5rem 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="cover">
+    <section class="letter taped" aria-label="手寫小紙條">
+      <p class="to">給 小寶：</p>
+      <p class="l1">這兩天什麼都不用想，</p>
+      <p class="l2">行程我先排好了，</p>
+      <p class="l3">你只要<span class="hl">開心出發</span>就好！</p>
+      <p class="sign">—— 小熊
+        <svg class="doodle heart" viewBox="0 0 26 24" width="26" height="24" aria-hidden="true" focusable="false"><path d="M13 21.5C6 16.5 2.5 12.5 3.2 8.2 3.9 4.2 9 3.2 13 8c4-4.8 9.1-3.8 9.8.2.7 4.3-2.8 8.3-9.8 13.3z"/></svg>
+      </p>
+      <p class="ps"><a href="#trip">P.S. 往下翻就是行程
+        <svg class="doodle arrow" viewBox="0 0 28 28" width="22" height="22" aria-hidden="true" focusable="false"><path d="M14 2C12 9 16 14 14 22M8 17l6 6 6-6"/></svg>
+      </a></p>
+    </section>
+
+    <div class="mast">
+      <div class="mast-top"><span>旅行特輯</span><span>定價 一個擁抱</span></div>
+      <p class="nameplate" aria-hidden="true">TAINAN</p>
+      <h1>台南兩天一夜</h1>
+      <p class="deck">慢慢走、好好吃、好好玩</p>
+      <div class="mast-foot">
+        <p class="credits">文・企劃　小熊<br>本期主角　小寶</p>
+        <span class="barcode" aria-hidden="true"></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="day" id="trip" aria-labelledby="day1">
+    <div class="day-head">
+      <span class="day-no" aria-hidden="true">01</span>
+      <h2 id="day1">第一天</h2>
+    </div>
+    <ol class="stops">
+      <li class="stop">
+        <div class="stub"><span class="time">09:00</span></div>
+        <div class="body">
+          <p class="name">示意早餐店</p>
+          <p class="place">地點：中西區</p>
+          <p class="desc">先吃一頓台南式早餐，慢慢暖身開始一天。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">11:00</span></div>
+        <div class="body">
+          <p class="name">示意古蹟景點</p>
+          <p class="place">地點：中西區</p>
+          <p class="desc">在老城區散步看古蹟，拍照也不用趕。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">14:00</span></div>
+        <div class="body">
+          <p class="name">示意小吃店</p>
+          <p class="place">地點：中西區</p>
+          <p class="desc">午後來份在地小吃，順便躲一下大太陽。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">18:00</span></div>
+        <div class="body">
+          <p class="name">示意晚餐店</p>
+          <p class="place">地點：北區</p>
+          <p class="desc">晚餐吃得豐盛一點，邊吃邊聊今天的收穫。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="day" aria-labelledby="day2">
+    <div class="day-head">
+      <span class="day-no" aria-hidden="true">02</span>
+      <h2 id="day2">第二天</h2>
+    </div>
+    <ol class="stops">
+      <li class="stop">
+        <div class="stub"><span class="time">08:30</span></div>
+        <div class="body">
+          <p class="name">示意早餐店</p>
+          <p class="place">地點：中西區</p>
+          <p class="desc">退房後先吃早餐，把行李寄放好再出發。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">10:30</span></div>
+        <div class="body">
+          <p class="name">示意海邊景點</p>
+          <p class="place">地點：安平區</p>
+          <p class="desc">到安平逛老街、看海風景，是這趟的重頭戲。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">13:00</span></div>
+        <div class="body">
+          <p class="name">示意午餐店</p>
+          <p class="place">地點：安平區</p>
+          <p class="desc">午餐吃在地海味，吃飽再慢慢逛。</p>
+        </div>
+      </li>
+      <li class="stop">
+        <div class="stub"><span class="time">15:30</span></div>
+        <div class="body">
+          <p class="name">示意咖啡店</p>
+          <p class="place">地點：中西區</p>
+          <p class="desc">最後坐下來喝杯咖啡，拿行李準備回程。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="day" aria-labelledby="remind">
+    <div class="day-head">
+      <span class="day-no" aria-hidden="true">P.S.</span>
+      <h2 id="remind">行前提醒</h2>
+    </div>
+    <dl class="remind taped">
+      <div class="row">
+        <dt>天氣</dt>
+        <dd>示意：兩天多雲，白天約 30°C，午後可能有短暫陣雨。</dd>
+      </div>
+      <div class="row">
+        <dt>要帶的東西</dt>
+        <dd>示意：身分證、雨傘、防曬用品、行動電源、水壺。</dd>
+      </div>
+      <div class="row">
+        <dt>集合時間</dt>
+        <dd>示意：第一天 08:30。</dd>
+      </div>
+      <div class="row">
+        <dt>集合地點</dt>
+        <dd>麻豆</dd>
+      </div>
+      <div class="row">
+        <dt>行程 QR 碼</dt>
+        <dd><img src="images/tainan-trip-qr.png" alt="台南兩天一夜行程 QR 碼" width="220" height="220" loading="lazy"></dd>
+      </div>
+    </dl>
+  </section>
+
+  <p class="foot">※ 店名與時間為示意，之後會更新。</p>
+
+</main>
+</body>
+</html>
