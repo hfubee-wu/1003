@@ -146,11 +146,11 @@ class Shot:
             bg = bg.crop(((bg.width-W)//2, (bg.height-H)//2, (bg.width-W)//2+W, (bg.height-H)//2+H)).filter(ImageFilter.GaussianBlur(45))
             s.bg = Image.blend(bg, Image.new('RGB', (W, H), (12, 24, 22)), 0.55)
         elif s.kind == 'video':
-            n = int((s.t1-s.t0+1.2)*FPS)
+            n = int((s.t1-s.t0+1.2)*FPS); vd = tempfile.mkdtemp(dir=VID_DIR)
             subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(s.ss), '-i', R(s.src), '-frames:v', str(n), '-vf',
                             f'fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}', '-q:v', '2',
-                            os.path.join(VID_DIR, 'f%04d.jpg')], check=True)
-            s.frames = sorted(glob.glob(os.path.join(VID_DIR, 'f*.jpg')))
+                            os.path.join(vd, 'f%04d.jpg')], check=True)
+            s.frames = sorted(glob.glob(os.path.join(vd, 'f*.jpg')))
     def free(s):
         for k in ('pre', 'bg'): s.__dict__.pop(k, None)
         s.ready = False

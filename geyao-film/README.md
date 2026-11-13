@@ -9,7 +9,7 @@ geyao-film/
 │  ├─ poster/        P01_活動海報.png            （P = 海報，僅作資訊與風格參考）
 │  ├─ collection/    K01~K05_<器形>.jpg          （K = 藏品攝影）
 │  ├─ event_photo/   E01~E10_<內容>.jpg          （E = 活動現場紀實照片）
-│  └─ event_video/   V01_器物橫移實拍.mp4         （V = 活動現場紀實影片）
+│  └─ event_video/   V01、V02_<內容>.mp4          （V = 活動現場紀實影片）
 ├─ audio/            vo_01~07.wav 旁白、bgm.wav 配樂、mix.wav 混音、vo_meta.json 時間碼
 ├─ fonts/            Noto Serif CJK TC（思源宋體，OFL 授權）
 ├─ docs/             分鏡表.md、旁白稿.md
