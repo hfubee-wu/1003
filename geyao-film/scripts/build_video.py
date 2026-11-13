@@ -98,7 +98,7 @@ SEAL = seal()
 f_big = F('Black', 150)
 INTRO_CH = [[text_layer([(ch, f_big, INK)], shadow=False) for ch in col] for col in ('鑑古識真', '傳承文化')]
 OUT_NAME = text_layer([('中華傳統文化推廣協會', F('Black', 98), INK)], shadow=False)
-OUT_TOP = text_layer([('哥窯與哥釉・古董珠寶概論', F('Bold', 44), (120, 86, 36))], shadow=False)
+OUT_TOP = text_layer([('哥窯與哥釉鑑賞', F('Bold', 44), (120, 86, 36))], shadow=False)
 OUT_SUB = text_layer([('傳承文化・共賞古董之美', F('Bold', 58), (150, 104, 40))], shadow=False)
 
 def ink_intro(t):

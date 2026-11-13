@@ -17,7 +17,7 @@ NARRATION = [
 
 # 分段標題字卡 (起, 迄, 主標, 副標)
 TITLES = [
-    (7.7, 11.6,  "哥窯與哥釉", "古董珠寶概論"),
+    (7.7, 11.6,  "哥窯與哥釉", "器物鑑賞"),
     (12.4, 21.6, "專家親臨分享", "歷史淵源・工藝特色・收藏價值"),
     (22.4, 31.6, "實物鑑賞", "會員交流・收藏分享"),
     (32.4, 40.6, "科學化工具", "實物鑑賞・細節解析"),
@@ -51,7 +51,7 @@ SHOTS = [
     dict(t0=32.0, t1=34.4, kind="cover", src=A+"event_photo/E01_顯微觀察粉彩瓶.jpg", c0=(.52,.55), c1=(.60,.55), z0=1.0, z1=1.12, tag=TAG_REAL, xf=0.6),
     dict(t0=34.4, t1=36.8, kind="cover", src=A+"event_photo/E03_顯微畫面平板.jpg", c0=(.45,.5), c1=(.45,.55), z0=1.0, z1=1.3, tag=TAG_REAL),
     dict(t0=36.8, t1=39.0, kind="cover", src=A+"event_photo/E06_瓶特寫.jpg", c0=(.6,.5), c1=(.6,.5), z0=1.06, z1=1.0, tag=TAG_REAL),
-    dict(t0=39.0, t1=41.0, kind="frame", src=A+"poster/P01_活動海報.png", crop=(.02,.825,.75,.93), z0=1.0, z1=1.05, tag="活動海報｜可攜帶藏品類別"),
+    dict(t0=39.0, t1=41.0, kind="cover", src=A+"event_photo/E04_觚特寫.jpg", c0=(.40,.62), c1=(.40,.58), z0=1.55, z1=1.75, tag=TAG_REAL),
     dict(t0=41.0, t1=43.6, kind="cover", src=A+"event_photo/E07_洗式器物觀察.jpg", c0=(.40,.5), c1=(.55,.5), z0=1.0, z1=1.05, tag=TAG_REAL, xf=0.6),
     dict(t0=43.6, t1=46.2, kind="frame", src=A+"event_photo/E10_六件器物陳列.jpg", crop=(0,0,1,1), z0=1.0, z1=1.08, tag=TAG_REAL),
     dict(t0=46.2, t1=50.0, kind="ink_outro", tag=None, xf=0.8),
