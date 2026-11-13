@@ -205,7 +205,7 @@ SUB_L = [(a, b, text_layer([(p, f_sub, (255, 255, 255))])) for a, b, p in CUES]
 
 def write_srt():
     ts = lambda x: '%02d:%02d:%02d,%03d' % (x//3600, x % 3600//60, x % 60, round(x % 1*1000) % 1000)
-    with open(R('output/哥窯與哥釉_活動紀錄_50s.srt'), 'w', encoding='utf-8') as f:
+    with open(R('output/哥窯與哥釉_活動紀錄_60s.srt'), 'w', encoding='utf-8') as f:
         for i, (a, b, p) in enumerate(CUES, 1): f.write(f'{i}\n{ts(a)} --> {ts(min(b, DUR))}\n{p}\n\n')
 
 def render(t):
@@ -241,7 +241,7 @@ if __name__ == '__main__':
             fr = render(t); fr.save(os.path.join(out, f'still_{t:05.1f}.jpg'), quality=88); sheet.paste(fr.resize((270, 480), Image.LANCZOS), (270*k, 0))
         sheet.save(os.path.join(out, 'sheet.jpg'), quality=85); sys.exit()
     write_srt()
-    outp = R('output/哥窯與哥釉_活動紀錄_50s.mp4')
+    outp = R('output/哥窯與哥釉_活動紀錄_60s.mp4')
     ff = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-',
                            '-i', R('audio/mix.wav'), '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p',
                            '-c:a', 'aac', '-b:a', '192k', '-t', str(DUR), '-movflags', '+faststart', outp], stdin=subprocess.PIPE)

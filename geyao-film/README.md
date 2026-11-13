@@ -1,4 +1,4 @@
-# 哥窯與哥釉｜50 秒活動紀錄影片
+# 哥窯與哥釉｜60 秒活動紀錄影片
 
 中華傳統文化推廣協會 2026/11/12（四）古亭麥當勞活動。
 
@@ -14,7 +14,7 @@ geyao-film/
 ├─ fonts/            Noto Serif CJK TC（思源宋體，OFL 授權）
 ├─ docs/             分鏡表.md、旁白稿.md
 ├─ scripts/          timeline.py（鏡頭表）、build_voice.py、build_music.py、build_video.py
-└─ output/           哥窯與哥釉_活動紀錄_50s.mp4、.srt
+└─ output/           哥窯與哥釉_活動紀錄_60s.mp4、.srt
 ```
 命名規則：`<類別代碼><兩位序號>_<內容描述>.<副檔名>`。
 
@@ -22,7 +22,7 @@ geyao-film/
 ```
 pip install pillow numpy scipy soundfile sherpa-onnx opencc-python-reimplemented pypinyin
 cd scripts
-python build_voice_clone.py <zipvoice 模型資料夾> <sensevoice 模型資料夾> 1.05 16   # 旁白（講師聲音複製，本人已同意）
+python build_voice_clone.py <zipvoice 模型資料夾> <sensevoice 模型資料夾> 1.0 16   # 旁白（講師聲音複製，本人已同意）
 # 或：python build_voice.py <kokoro-multi-lang-v1_0 模型資料夾> 49 1.0          # 旁白（通用合成男聲）
 python build_music.py                                            # 配樂 + 混音
 python build_video.py                                            # 影片 + SRT

@@ -43,18 +43,21 @@ def drum(dur=2.5):                           # 低音大鼓（段落轉場）
     return np.sin(2*np.pi*(48*t+18*(1-np.exp(-t*18))/18))*np.exp(-t*3.2)
 
 mus = np.zeros((N, 2))
+K = DUR/50.0   # 樂譜以 50 秒寫成，依影片長度等比例伸縮
+_place = place
+def place(buf, x, t, g=1.0, pan=0.5): _place(buf, x, t*K, g, pan)
 # 和聲進行（D 羽調式五聲：D F G A C），每段落換一次低音
 chords = [(0, 5, [38, 45, 50]), (5, 12, [41, 48, 53]), (12, 22, [38, 45, 53]), (22, 32, [43, 50, 55]),
           (32, 41, [36, 43, 52]), (41, 46.2, [41, 48, 57]), (46.2, 50, [38, 45, 50, 57])]
 for a, b, ms in chords:
-    place(mus, pad(ms, b-a+2.0), max(0, a-1.0), 0.05)
+    place(mus, pad(ms, (b-a)*K+2.0), max(0, a-1.0/K), 0.05)
 for t in (0.0, 5.0, 12.0, 22.0, 32.0, 41.0, 46.2):
     place(mus, drum(), t, 0.5)
 penta = [62, 65, 67, 69, 72, 74, 77, 79, 81, 84]
 def gliss(t, up=True, g=0.16):               # 古箏刮奏
     seq = penta if up else penta[::-1]
     for i, m in enumerate(seq):
-        place(mus, pluck(m, 2.5, 0.7), t+i*0.055, g*(0.6+0.4*i/len(seq)), 0.3+0.04*i)
+        place(mus, pluck(m, 2.5, 0.7), t+i*0.055/K, g*(0.6+0.4*i/len(seq)), 0.3+0.04*i)
 for t in (0.15, 11.6, 21.6, 31.6, 40.6): gliss(t, True)
 gliss(46.0, False, 0.2)
 # 古箏主旋律 (起拍秒, MIDI)
@@ -70,7 +73,7 @@ for t, m in mel:
     place(mus, pluck(m-12, 3.5, 0.3), t+0.01, 0.10, 0.6)
 # 洞簫長音
 for t, m, d in [(12.2,74,3.2),(15.6,72,2.6),(18.4,69,3.2),(32.2,72,3.4),(35.8,76,2.8),(38.8,74,2.4),(46.4,74,3.6)]:
-    place(mus, xiao(m, d), t, 0.055, 0.6)
+    place(mus, xiao(m, d*K), t, 0.055, 0.6)
 # 殘響
 ir = rng.normal(0, 1, (int(2.4*SR), 2))*np.exp(-np.arange(int(2.4*SR))/SR*2.6)[:, None]
 wet = np.stack([fftconvolve(mus[:, c], ir[:, c])[:N] for c in (0, 1)], 1)

@@ -20,7 +20,7 @@ import difflib, re
 from pypinyin import lazy_pinyin
 clean = lambda t: lazy_pinyin(re.sub(r'[^\u4e00-\u9fff]', '', t))   # 以拼音比對，忽略同音字
 rec = sherpa_onnx.OfflineRecognizer.from_sense_voice(model=asr_d+'/model.onnx', tokens=asr_d+'/tokens.txt', use_itn=True, language='zh', num_threads=4)
-MAXDUR = [4.55, 6.2, 9.4, 9.4, 7.95, 4.95, 4.4]   # 各段旁白可用的最長秒數
+MAXDUR = [5.1, 7.4, 11.2, 11.2, 9.9, 5.3, 4.7]   # 各段旁白可用的最長秒數
 ref, rsr = sf.read(REF, dtype='float32'); t2s = OpenCC('t2s'); meta = []
 only = [int(x) for x in os.environ.get('ONLY', '').split(',') if x]
 old = json.load(open(os.path.join(ROOT, 'audio/vo_meta.json'))) if only else None
