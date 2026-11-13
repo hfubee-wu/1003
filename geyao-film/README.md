@@ -20,9 +20,10 @@ geyao-film/
 
 ## 重新產生
 ```
-pip install pillow numpy scipy soundfile sherpa-onnx opencc-python-reimplemented
+pip install pillow numpy scipy soundfile sherpa-onnx opencc-python-reimplemented pypinyin
 cd scripts
-python build_voice.py <kokoro-multi-lang-v1_0 模型資料夾> 49 1.0   # 旁白
+python build_voice_clone.py <zipvoice 模型資料夾> <sensevoice 模型資料夾> 1.05 16   # 旁白（講師聲音複製，本人已同意）
+# 或：python build_voice.py <kokoro-multi-lang-v1_0 模型資料夾> 49 1.0          # 旁白（通用合成男聲）
 python build_music.py                                            # 配樂 + 混音
 python build_video.py                                            # 影片 + SRT
 ```
